@@ -34,3 +34,13 @@ if (playerInput == 1) {
     printMessage('Wybrałeś numer spoza zakresu. Spróbuj ponownie:');
 }
 printMessage('Twój ruch to ' + playerMove);
+
+if (computerMove == 'kamień' && playerMove == 'papier' || computerMove == 'papier' && playerMove == 'nożyce' || computerMove == 'nożyce' && playerMove == 'kamień') {
+    printMessage('Wygrałeś!');
+} else if (computerMove == 'papier' && playerMove == 'kamień' || computerMove == 'nożyce' && playerMove == 'papier' || computerMove == 'kamień' && playerMove == 'nożyce') {
+    printMessage('Przegrałeś');
+} else if (computerMove == playerMove) {
+    printMessage('Remis');
+} else {
+    printMessage('Wybrałeś numer spoza zakresu');
+}
