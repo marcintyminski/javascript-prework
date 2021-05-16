@@ -4,17 +4,9 @@ let randomNumber = Math.floor(Math.random() * 3 + 1);
 
 console.log('Wylosowana liczba to: ' + randomNumber);
 
-let computerMove = 'nieznany ruch';
+let argComputerMove = getMoveName(randomNumber);
 
-if (randomNumber == 1) {
-    computerMove = 'kamień';
-} else if (randomNumber == 2) {
-    computerMove = 'papier';
-} else {
-    computerMove = 'nożyce';
-}
-
-printMessage('Mój ruch to ' + computerMove);
+printMessage('Mój ruch to ' + argComputerMove);
 
 //ruch gacza
 
@@ -22,25 +14,12 @@ let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.
 
 console.log('Gracz wpisał ' + playerInput);
 
-let playerMove = 'nieznany ruch';
+let argPlayerMove = getMoveName(playerInput);
 
-if (playerInput == 1) {
-    playerMove = 'kamień';
-} else if (playerInput == 2) {
-    playerMove = 'papier';
-} else if (playerInput == 3) {
-    playerMove = 'nożyce';
-} else {
-    printMessage('Wybrałeś numer spoza zakresu. Spróbuj ponownie:');
-}
-printMessage('Twój ruch to ' + playerMove);
+printMessage('Twój ruch to ' + argPlayerMove);
 
-if (computerMove == 'kamień' && playerMove == 'papier' || computerMove == 'papier' && playerMove == 'nożyce' || computerMove == 'nożyce' && playerMove == 'kamień') {
-    printMessage('Wygrałeś!');
-} else if (computerMove == 'papier' && playerMove == 'kamień' || computerMove == 'nożyce' && playerMove == 'papier' || computerMove == 'kamień' && playerMove == 'nożyce') {
-    printMessage('Przegrałeś');
-} else if (computerMove == playerMove) {
-    printMessage('Remis');
-} else {
-    printMessage('Wybrałeś numer spoza zakresu');
-}
+//rezultat
+
+let result = displayResults(argComputerMove, argPlayerMove);
+
+printMessage(result)
